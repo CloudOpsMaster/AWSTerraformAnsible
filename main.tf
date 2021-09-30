@@ -19,6 +19,31 @@ resource "aws_instance" "Ansible" {
   user_data     = file("init_scripts/ansible.sh")
   key_name      = aws_key_pair.public.key_name
 
+
+  provisioner "file" {
+    source      = var.privatekeypath
+    destination = "/home/ubuntu/.ssh/key_rsa"
+    connection {
+      type        = "ssh"
+      user        = "ubuntu"
+      private_key = file(var.privatekeypath)
+      host        = self.public_ip
+    }
+  }
+  provisioner "remote-exec" {
+    inline = [
+      "chmod 400 /home/ubuntu/.ssh/key_rsa",
+    ]
+    connection {
+      type = "ssh"
+      user = "ubuntu"
+      private_key = file(var.privatekeypath)
+      host = self.public_ip
+    }
+  }
+
+
+
   tags = {
     Project = "awsAnsible"
     Name    = "Ansible"

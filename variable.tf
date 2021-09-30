@@ -13,7 +13,12 @@ variable "public_cidr" {
 
 variable "publickeypath" {
   type = string
-  default = "C:/terraform/keys/public.pem"
+  default = "C:/terraform/AWS/.ssh/key_rsa.pub"
+}
+
+variable "privatekeypath" {
+  type = string
+  default = "C:/terraform/AWS/.ssh/key_rsa"
 }
 
 
