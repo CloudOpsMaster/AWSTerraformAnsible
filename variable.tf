@@ -11,6 +11,11 @@ variable "public_cidr" {
   default = "192.168.0.0/24"
 }
 
+variable "publickeypath" {
+  type = string
+  default = "C:/terraform/keys/public.pem"
+}
+
 
 data "aws_ami" "ubuntu" {
   owners      = ["099720109477"]
