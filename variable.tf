@@ -21,6 +21,9 @@ variable "privatekeypath" {
   default = "C:/terraform/AWS/.ssh/key_rsa"
 }
 
+variable "instance_count" {
+  default = "4"
+}
 
 data "aws_ami" "ubuntu" {
   owners      = ["099720109477"]
