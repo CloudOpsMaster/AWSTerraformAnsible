@@ -22,7 +22,7 @@ output "data_aws_availability_zones" {
 output "vpc_cidr" {
   value = resource.aws_vpc.vpc.cidr_block
 }
-output "Ansible_public_ip" {
+output "SAnsible_public_ip" {
   value =  aws_instance.ansible.public_ip
 }
 output "server1" {
