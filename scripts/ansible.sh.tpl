@@ -1,12 +1,11 @@
 #!/bin/bash
 
-sudo apt update -y
-sudo apt install software-properties-common -y
-sudo add-apt-repository --yes --update ppa:ansible/ansible 
-sudo apt install ansible -y
-sudo cd ~
-sudo mkdir ansible  
-sudo cd ansible
+apt update -y
+apt install software-properties-common -y
+add-apt-repository --yes --update ppa:ansible/ansible 
+apt install ansible -y
+mkdir /home/ubuntu/ansible  
+touch /home/ubuntu/ansible/host.txt
 sudo printf "
 [app]
 Linux1 ansible_host=${NODE0} ansible_user=ubuntu ansible_ssh_private_key_file=/home/ubuntu/.ssh/key_rsa
